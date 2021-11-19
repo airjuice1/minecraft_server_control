@@ -27,6 +27,18 @@ function remove_archives($path = '/home/juice/')
 	system('rm -rf ' . $path . '*.tar.gz');
 }
 
+function restore_backup($server_path = '', $backup_path = '~')
+{
+	$backup_filename = trim(shell_exec('ls -dt ' . $backup_path . '/*_minecraft_server.tar.gz | head -1'));
+	system('tar -xvzf ' . $backup_filename . ' -C /tmp');
+	system('rm -rf ' . $server_path . '*');
+	sleep(5);
+	system('cp -R /tmp' . $server_path . '/* ' . $server_path);
+	sleep(5);
+	system('rm -rf /tmp' . $server_path);
+	system('rm -rf '. $backup_path . '/*_minecraft_server.tar.gz');
+}
+
 function find_session_name($target = '')
 {
 	$result = false;
