@@ -17,6 +17,7 @@ try
 	{
 		stop_server($screen_name);
 		make_archive($server_path);
+		start_server($server_path, $screen_name);
 	}
 }
 catch( MinecraftPingException $e )
