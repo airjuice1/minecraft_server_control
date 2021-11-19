@@ -7,8 +7,6 @@ require __DIR__ . '/MinecraftPingException.php';
 use xPaw\MinecraftPing;
 use xPaw\MinecraftPingException;
 
-// screen -S minecraft_server -p 0 -X stuff "^C" && tar -czvf /home/juice/' . time() . 'backup_minecraft_server.tar.gz /servers/minecraft/vanilla && /servers/minecraft/vanilla/start.sh
-
 try
 {
 	$Query = new MinecraftPing( $server_addr, $server_port );
@@ -18,6 +16,7 @@ try
 	if ((int)$result['players']['online'] == 0)
 	{
 		stop_server($screen_name);
+		make_archive($server_path);
 	}
 }
 catch( MinecraftPingException $e )
