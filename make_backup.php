@@ -40,6 +40,7 @@ if (empty($res['error'])) {
 	print_r($http_code);
 	
 	if ($http_code == 201) {
-		echo 'Файл успешно загружен' . "\n\n\n";		
+		echo 'Файл успешно загружен' . "\n\n\n";
+		system('rm -rf ~/*_minecraft_server.tar.gz');		
 	}
 } 
