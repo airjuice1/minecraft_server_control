@@ -1,20 +1,13 @@
 <?php
 function start_server($server_path = false, $screen_name = '', $delay = 10)
 {
-	if (find_session_name($screen_name))
+	if ( ! find_session_name($screen_name) )
 	{
-		echo 'yes' . "\n";
+		system('echo START MINECRAFT SERVER' . "\n");		
+		system('cd ' . $server_path  . ' && screen -dmS ' . $screen_name . ' java -Xmx62G -jar server.jar --nogui');
+		sleep($delay);
+		system('echo MINECRAFT SERVER STARTED' . "\n");
 	}
-	else
-	{
-		echo 'no' . "\n";
-	}
-	exit();
-
-	system('echo START MINECRAFT SERVER' . "\n");		
-	system('cd ' . $server_path  . ' && screen -dmS ' . $screen_name . ' java -Xmx62G -jar server.jar --nogui');
-	sleep($delay);
-	system('echo MINECRAFT SERVER STARTED' . "\n");
 }
 
 function stop_server($screen_name = '', $delay = 10)
