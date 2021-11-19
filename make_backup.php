@@ -13,26 +13,20 @@ try
 {
 	$Query = new MinecraftPing( $server_addr, $server_port );
 	
-	$result = $Query->Query();
-
-	// echo 'try';
+	$result = $Query->Query();	
 
 	if ((int)$result['players']['online'] == 0)
 	{
-		// echo 'stop';
 		stop_server($screen_name);
 	}
 }
 catch( MinecraftPingException $e )
 {
-	// echo $e->getMessage();	
-
-	echo 'except';
+	// echo $e->getMessage();
 	start_server($server_path, $screen_name);
 }
 finally
-{
-	echo 'finally';
+{	
 	if( $Query )
 	{
 		$Query->Close();
