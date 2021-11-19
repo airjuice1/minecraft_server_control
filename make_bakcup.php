@@ -1,8 +1,26 @@
 <?php
-require_once 'config.php';
+require_once __DIR__ . '/config.php';
+require __DIR__ . '/MinecraftPing.php';
+require __DIR__ . '/MinecraftPingException.php';
 
-echo '<pre>';
-print_r($screen_name);
-echo '</pre>';
-// continue;
-exit();
+use xPaw\MinecraftPing;
+use xPaw\MinecraftPingException;
+
+try
+{
+	$Query = new MinecraftPing( $server_addr, $server_port );
+	
+	print_r( $Query->Query() );
+}
+catch( MinecraftPingException $e )
+{
+	echo $e->getMessage();
+}
+finally
+{
+	if( $Query )
+	{
+		$Query->Close();
+	}
+}
+?>
