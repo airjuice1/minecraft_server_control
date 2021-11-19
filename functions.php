@@ -21,6 +21,6 @@ function make_archive($target_path = '', $out_path = '/home/juice/', $delay = 10
 
 function remove_archives($path = '/home/juice/')
 {
-	system('rm -rf ' $path . '*.tar.gz');
+	system('rm -rf ' . $path . '*.tar.gz');
 }
 
