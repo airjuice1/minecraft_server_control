@@ -20,6 +20,7 @@ function make_archive($target_path = '', $out_path = '/home/juice/', $screen_nam
 {
 	system('screen -S ' . $screen_name . ' -p 0 -X stuff "/save-all"');
 	system('screen -S ' . $screen_name . ' -p 0 -X stuff "^M"');
+	sleep(10);
 	system('tar -czvf ' . $out_path . time() . 'backup_minecraft_server.tar.gz ' . $target_path);
 	sleep($delay);
 }
