@@ -9,8 +9,6 @@ use xPaw\MinecraftPingException;
 
 // screen -S minecraft_server -p 0 -X stuff "^C" && tar -czvf /home/juice/' . time() . 'backup_minecraft_server.tar.gz /servers/minecraft/vanilla && /servers/minecraft/vanilla/start.sh
 
-start_server($server_path, $screen_name);
-
 try
 {
 	$Query = new MinecraftPing( $server_addr, $server_port );
@@ -25,6 +23,8 @@ try
 catch( MinecraftPingException $e )
 {
 	// echo $e->getMessage();	
+
+	echo 'test';
 	start_server($server_path, $screen_name);
 }
 finally
