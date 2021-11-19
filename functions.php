@@ -1,9 +1,15 @@
 <?php
 function start_server($server_path = false, $screen_name = '', $delay = 10)
 {
-	find_session_name();
+	if (find_session_name($screen_name))
+	{
+		echo 'yes' . "\n";
+	}
+	else
+	{
+		echo 'no' . "\n";
+	}
 	exit();
-
 
 	system('echo START MINECRAFT SERVER' . "\n");		
 	system('cd ' . $server_path  . ' && screen -dmS ' . $screen_name . ' java -Xmx62G -jar server.jar --nogui');
@@ -30,7 +36,14 @@ function remove_archives($path = '/home/juice/')
 
 function find_session_name($target = '')
 {
-	$result = shell_exec('screen -ls');	
-	print_r($result);	
+	$result = false;
+	$output = shell_exec('screen -ls');	
+	
+	if (mb_strpos($output, $target) !== false)
+	{
+		$result = true;
+	}
+
+	return $result;
 }
 
