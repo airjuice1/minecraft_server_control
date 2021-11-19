@@ -15,7 +15,7 @@ function stop_server($screen_name = '', $delay = 10)
 
 function make_archive($target_path = '', $out_path = '/home/juice/', $delay = 10)
 {
-	system('tar -czvf ' $out_path . time() . 'backup_minecraft_server.tar.gz ' . $target_path);
+	system('tar -czvf ' . $out_path . time() . 'backup_minecraft_server.tar.gz ' . $target_path);
 	// sleep($delay);
 }
 
