@@ -1,5 +1,5 @@
 <?php
-function start_server($server_path = false, $screen_name = '', $delay = 20)
+function start_server($server_path = false, $screen_name = '', $delay = 10)
 {
 	system('echo START MINECRAFT SERVER\n');
 	system('cd ' . $server_path);
