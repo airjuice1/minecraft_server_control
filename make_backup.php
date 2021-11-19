@@ -32,7 +32,7 @@ catch( MinecraftPingException $e )
 }
 finally
 {
-	echo 'finally!';
+	echo 'finally';
 	if( $Query )
 	{
 		$Query->Close();
