@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/functions.php';
 require __DIR__ . '/MinecraftPing.php';
 require __DIR__ . '/MinecraftPingException.php';
 
@@ -16,20 +17,13 @@ try
 
 	if ((int)$result['players']['online'] == 0)
 	{
-		// system('screen -S ' . $screen_name . ' -p 0 -X stuff "^C"');
-		$o = shell_exec('screen -S ' . $screen_name . ' -p 0 -X stuff "^C"');
-		echo '<pre>';
-		print_r($o);
-		echo '</pre>';
-		// continue;
-		exit();
+		stop_server($screen_name);
 	}
 }
 catch( MinecraftPingException $e )
 {
 	// echo $e->getMessage();
-	$out = shell_exec($server_run);
-	print_r($out);	
+	start_server($server_path, $screen_name);
 }
 finally
 {
