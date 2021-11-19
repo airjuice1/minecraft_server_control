@@ -15,11 +15,11 @@ try
 	
 	$result = $Query->Query();
 
-	echo 'try';
+	// echo 'try';
 
 	if ((int)$result['players']['online'] == 0)
 	{
-		echo 'stop';
+		// echo 'stop';
 		stop_server($screen_name);
 	}
 }

@@ -9,6 +9,6 @@ function start_server($server_path = false, $screen_name = '', $delay = 10)
 
 function stop_server($screen_name = '', $delay = 10)
 {
-	shell_exec('screen -S ' . $screen_name . ' -p 0 -X stuff "^C"');
+	system('screen -S ' . $screen_name . ' -p 0 -X stuff "^C"');
 	sleep($delay);
 }
