@@ -16,7 +16,7 @@ function stop_server($screen_name = '', $delay = 10)
 	sleep($delay);
 }
 
-function make_archive($target_path = '', $out_path = '/home/juice/', $screen_name = '', $delay = 20)
+function make_archive($screen_name = '', $target_path = '', $out_path = '/home/juice/', $delay = 20)
 {
 	system('screen -S ' . $screen_name . ' -p 0 -X stuff "/save-all"');
 	system('screen -S ' . $screen_name . ' -p 0 -X stuff "^M"');
