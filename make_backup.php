@@ -4,7 +4,7 @@ require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/secret.php';
 
 $filename = make_archive($screen_name, $server_path);
-
+sleep(10);
 $ch = curl_init('https://cloud-api.yandex.net/v1/disk/resources/upload?path=' . urlencode($backup_path . basename($filename)));
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: OAuth ' . $token));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
