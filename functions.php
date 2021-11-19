@@ -1,10 +1,8 @@
 <?php
 function start_server($server_path = false, $screen_name = '', $delay = 10)
 {
-	system('echo START MINECRAFT SERVER' . "\n");
-	system('cd ' . $server_path);
-	system('pwd');
-	system('screen -dmS ' . $screen_name . ' java -Xmx62G -jar server.jar --nogui');
+	system('echo START MINECRAFT SERVER' . "\n");		
+	system('cd ' . $server_path  . ' && screen -dmS ' . $screen_name . ' java -Xmx62G -jar server.jar --nogui');
 	sleep($delay);
 	system('echo MINECRAFT SERVER STARTED' . "\n");
 }
