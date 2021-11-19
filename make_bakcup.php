@@ -27,7 +27,9 @@ try
 }
 catch( MinecraftPingException $e )
 {
-	echo $e->getMessage();
+	// echo $e->getMessage();
+	$out = shell_exec($server_run);
+	print_r($out);	
 }
 finally
 {
