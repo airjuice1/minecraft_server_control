@@ -13,10 +13,10 @@ function stop_server($screen_name = '', $delay = 10)
 	sleep($delay);
 }
 
-function make_archive($target_path = '', $out_path = '/home/juice/', $delay = 10)
+function make_archive($target_path = '', $out_path = '/home/juice/', $delay = 20)
 {
 	system('tar -czvf ' . $out_path . time() . 'backup_minecraft_server.tar.gz ' . $target_path);
-	// sleep($delay);
+	sleep($delay);
 }
 
 function remove_archives($path = '/home/juice/')
