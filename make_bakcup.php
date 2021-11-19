@@ -17,7 +17,7 @@ try
 	if ((int)$result['players']['online'] == 0)
 	{
 		// system('screen -S ' . $screen_name . ' -p 0 -X stuff "^C"');
-		system('screen -S ' . $screen_name . ' -p 0 -X stuff "^C"');
+		system('ls -lh');
 	}
 }
 catch( MinecraftPingException $e )
