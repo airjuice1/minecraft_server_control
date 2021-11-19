@@ -17,7 +17,7 @@ try
 	if ((int)$result['players']['online'] == 0)
 	{
 		// system('screen -S ' . $screen_name . ' -p 0 -X stuff "^C"');
-		$o = system('ls -lh');
+		$o = shell_exec('ls -lh');
 		echo '<pre>';
 		print_r($o);
 		echo '</pre>';
