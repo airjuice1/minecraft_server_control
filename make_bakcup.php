@@ -22,7 +22,7 @@ try
 }
 catch( MinecraftPingException $e )
 {
-	// echo $e->getMessage();
+	// echo $e->getMessage();	
 	start_server($server_path, $screen_name);
 }
 finally
