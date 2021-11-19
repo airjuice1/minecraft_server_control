@@ -35,7 +35,8 @@ function restore_backup($server_path = '', $backup_path = '~')
 	sleep(5);
 	system('cp -R /tmp' . $server_path . '/* ' . $server_path);
 	sleep(5);
-	system('rm -rf /tmp' . $server_path);
+	system('rm -rf /tmp/servers/');
+	system('rm -rf /tmp/*_minecraft_server.tar.gz');
 	system('rm -rf '. $backup_path . '/*_minecraft_server.tar.gz');
 }
 
