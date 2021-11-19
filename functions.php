@@ -16,13 +16,14 @@ function stop_server($screen_name = '', $delay = 10)
 	sleep($delay);
 }
 
-function make_archive($screen_name = '', $target_path = '', $out_path = '/home/juice/', $delay = 20)
+function make_archive($screen_name = '', $target_path = '', $out_path = '~', $delay = 20)
 {
 	system('screen -S ' . $screen_name . ' -p 0 -X stuff "/save-all"');
 	system('screen -S ' . $screen_name . ' -p 0 -X stuff "^M"');
 	sleep(10);
-	system('tar -czvf ' . $out_path . time() . 'backup_minecraft_server.tar.gz ' . $target_path);
+	system('tar -czvf ' . $out_path . '/' . time() . 'backup_minecraft_server.tar.gz ' . $target_path);
 	sleep($delay);
+	return trim(shell_exec('ls -dt ' . $out_path . '/*_minecraft_server.tar.gz | head -1'));
 }
 
 function remove_archives($path = '/home/juice/')
