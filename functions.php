@@ -1,6 +1,10 @@
 <?php
 function start_server($server_path = false, $screen_name = '', $delay = 10)
 {
+	find_session_name();
+	exit();
+
+
 	system('echo START MINECRAFT SERVER' . "\n");		
 	system('cd ' . $server_path  . ' && screen -dmS ' . $screen_name . ' java -Xmx62G -jar server.jar --nogui');
 	sleep($delay);
@@ -22,5 +26,11 @@ function make_archive($target_path = '', $out_path = '/home/juice/', $delay = 20
 function remove_archives($path = '/home/juice/')
 {
 	system('rm -rf ' . $path . '*.tar.gz');
+}
+
+function find_session_name($target = '')
+{
+	$result = shell_exec('screen -ls');	
+	print_r($result);	
 }
 
