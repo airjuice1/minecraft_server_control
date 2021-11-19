@@ -3,7 +3,7 @@ function start_server($server_path = false, $screen_name = '', $delay = 20)
 {
 	system('echo START MINECRAFT SERVER\n');
 	system('cd ' . $server_path);
-	sysytem('screen -dmS ' . $screen_name . ' java -Xmx62G -jar server.jar --nogui');
+	system('screen -dmS ' . $screen_name . ' java -Xmx62G -jar server.jar --nogui');
 	sleep($delay);
 	system('echo MINECRAFT SERVER STARTED\n');
 }
